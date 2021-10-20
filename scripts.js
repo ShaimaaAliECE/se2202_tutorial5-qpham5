@@ -39,7 +39,7 @@ function takeCell(event)
        const id = e.target.id;
        if (! spaces [id]){
            spaces[id] = nextPlayer;
-           e.target.innerText = nextPlayer;
+           e.target.innerHTML = nextPlayer;
        }
    }
 
