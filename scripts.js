@@ -1,8 +1,15 @@
 let nextPlayer = 'X'; // takes a value of either 'X' or 'O' according to the game turns
+let nextPlayer2 = 'circle';
 
 //initialize the game
 
+
+
 // use the value stored in the nextPlayer variable to indicate who the next player is
+
+if (game != nextPlayer2){
+takeCell (nextPlayer);
+}
 
 
 //This call will create the buttons needed for the gameboard.
@@ -11,7 +18,8 @@ createGameBoard()
 function createGameBoard()
 {
     // Programatically add a button with square brackets enclosing an empty space to each cell in the gameboard
-   
+   var btns = document.createElement("Click me");
+    btns.innerHTML = "Save";
 }
 
 // Programatically add 'takeCell' as an event listener to all the buttons on the board
@@ -27,14 +35,32 @@ function takeCell(event)
     /*
         When the button is clicked, the space inside its square brackets is replaced by the value in the nextPlayer before switching it
     */
+   const boxClick = (e) => {
+       const id = e.target.id;
+       if (! spaces [id]){
+           spaces[id] = nextPlayer;
+           e.target.innerText = nextPlayer;
+       }
+   }
+
 
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
+    if (document.getElementById('button').clicked == true){
+        alert("button was clicked");
+    }
+
+
 
     // Check if the game is over
     if (isGameOver())
     {
         // let the lable with the id 'game-over-lbl' display the words 'Game Over' inside <h1> element
-    }
+        btns.onclick = clickMe;
+        function clickMe(){
+            alert ("game-over-lbl");
+        }
+
+    }   
 
     // I'll leave declaring the winner for your intrinsic motivation, it's not required for this assignment 
 }
@@ -42,5 +68,9 @@ function takeCell(event)
 function isGameOver()
 {
     // This function returns true if all the buttons are disabled and false otherwise 
-   
+    if (document.getElementById('button').clicked == true){
+        return true;
+    }
+    else 
+    return false;
 }
